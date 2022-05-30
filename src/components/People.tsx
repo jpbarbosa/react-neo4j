@@ -30,7 +30,13 @@ export const People: React.FC<PeopleProps> = ({ movieTitle }) => {
     <div className="App">
       <ul>
         {records?.map((record) => (
-          <li key={record.get('p').properties.name}>
+          <li
+            key={
+              record.get('p').properties.name +
+              '_' +
+              record.get('type(relatedTo)')
+            }
+          >
             {record.get('p').properties.name}, {record.get('type(relatedTo)')}
           </li>
         ))}
