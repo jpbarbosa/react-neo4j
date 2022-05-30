@@ -15,11 +15,20 @@ const Graph: React.FC<NeoGraphProps> = (props) => {
   const visRef = useRef<any>();
 
   useEffect(() => {
+    const {
+      REACT_APP_GRAPHDB_HOST,
+      REACT_APP_GRAPHDB_PORT,
+      REACT_APP_GRAPHDB_USER,
+      REACT_APP_GRAPHDB_PASS,
+    } = process.env;
+
     const config = {
       container_id: visRef.current.id,
-      server_url: 'neo4j://e6f36053.databases.neo4j.io:7687',
-      server_user: String(process.env.REACT_APP_GRAPHDB_USER),
-      server_password: String(process.env.REACT_APP_GRAPHDB_PASS),
+      server_url: `neo4j://${String(REACT_APP_GRAPHDB_HOST)}:${String(
+        REACT_APP_GRAPHDB_PORT
+      )}`,
+      server_user: String(REACT_APP_GRAPHDB_USER),
+      server_password: String(REACT_APP_GRAPHDB_PASS),
       labels: {
         Movie: {
           caption: 'title',
