@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <h1>Neo4j Sandbox</h1>
       <div style={{ display: 'flex' }}>
-        <List setMovieTitle={setMovieTitle} />
+        <List movieTitle={movieTitle} setMovieTitle={setMovieTitle} />
         {movieTitle && (
           <div>
             <h2>{movieTitle}</h2>
