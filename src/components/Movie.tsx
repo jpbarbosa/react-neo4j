@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useReadCypher } from 'use-neo4j';
+import { Graph } from './Graph';
 import { People } from './People';
 
 interface MovieProps {
@@ -35,6 +36,13 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
       <div>Released year: {released.low}</div>
       <h3>People:</h3>
       <People movieTitle={title} />
+      <Graph
+        backgroundColor="white"
+        width={600}
+        height={600}
+        containerId="teste"
+        query={`MATCH (m:Movie)-[relatedTo]-(p:Person) WHERE m.title CONTAINS "${title}" RETURN *`}
+      />
     </div>
   );
 };
