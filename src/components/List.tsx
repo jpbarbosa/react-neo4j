@@ -36,13 +36,18 @@ export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
   }
 
   return (
-    <div className="App">
+    <div className="list">
       <h2>Movies</h2>
-      <ul className="list">
+      <ul>
         {records?.map((record) => (
           <li
             key={record.get('movie').properties.title}
             onClick={() => setMovieTitle(record.get('movie').properties.title)}
+            className={
+              record.get('movie').properties.title === movieTitle
+                ? 'active'
+                : ''
+            }
           >
             {record.get('movie').properties.title}
             {record.get('relations').length > 0 && (

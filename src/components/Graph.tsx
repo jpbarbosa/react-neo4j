@@ -2,15 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import Neovis from 'neovis.js';
 
 interface NeoGraphProps {
-  width: number;
-  height: number;
   containerId: string;
-  backgroundColor: string;
   query: string;
 }
 
 const Graph: React.FC<NeoGraphProps> = (props) => {
-  const { width, height, containerId, backgroundColor, query } = props;
+  const { containerId, query } = props;
 
   const visRef = useRef<any>();
 
@@ -73,17 +70,7 @@ const Graph: React.FC<NeoGraphProps> = (props) => {
     vis.render();
   }, [query]);
 
-  return (
-    <div
-      id={containerId}
-      ref={visRef}
-      style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        backgroundColor: `${backgroundColor}`,
-      }}
-    />
-  );
+  return <div className="graph" id={containerId} ref={visRef} />;
 };
 
 export { Graph };

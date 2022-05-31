@@ -31,20 +31,23 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
   const { tagline, released } = first?.get('m').properties;
 
   return (
-    <div className="App">
-      <img
-        src={`${process.env.PUBLIC_URL}/img/movies/${title}.jpg`}
-        alt={title}
-        width={100}
-      />
-      <div>Tagline: {tagline}</div>
-      <div>Released year: {released.low}</div>
-      <h3>People:</h3>
+    <div className="movie">
+      <div className="info">
+        <img
+          src={`${process.env.PUBLIC_URL}/img/movies/${title}.jpg`}
+          alt={title}
+          width={100}
+          style={{ float: 'left' }}
+        />
+        <div>
+          <h2>{title}</h2>
+          <div title="Tagline">{tagline}</div>
+          <div title="Released">{released.low}</div>
+        </div>
+      </div>
+      <h3>People</h3>
       <People movieTitle={title} />
       <Graph
-        backgroundColor="white"
-        width={600}
-        height={600}
         containerId="teste"
         query={`MATCH (m:Movie)-[relatedTo]-(p:Person) WHERE m.title CONTAINS "${title}" RETURN *`}
       />
