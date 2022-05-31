@@ -46,6 +46,11 @@ h2 {
   padding-left: 16px;
 }
 
+h2,
+h3 {
+  margin: 16px 0 8px 0;
+}
+
 div.movie {
   padding: 16px;
 }
@@ -90,4 +95,30 @@ div.graph {
   width: 600px;
   height: 600px;
   margin-top: 16px;
+}
+
+div.showQuery {
+  margin-bottom: 8px;
+}
+
+div.list div.showQuery {
+  margin: 8px 16px;
+}
+
+div.showQuery .show,
+div.showQuery .query {
+  font-size: 0.8em;
+  cursor: pointer;
+  color: #333;
+  border: 2px solid #333;
+  padding: 8px;
+  margin: 0;
+}
+
+div.showQuery .show {
+  background: #111;
+}
+
+div.showQuery .query {
+  background: #ccc;
 }

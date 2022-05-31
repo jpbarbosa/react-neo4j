@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import { useReadCypher } from 'use-neo4j';
 import { Graph } from './Graph';
 import { People } from './People';
+import { ShowQuery } from './ShowQuery';
 
 interface MovieProps {
   title: string;
 }
 
 export const Movie: React.FC<MovieProps> = ({ title }) => {
-  const query = `MATCH (m:Movie) WHERE m.title CONTAINS $title RETURN m`;
+  const query = `MATCH (m:Movie)
+    WHERE m.title CONTAINS $title
+    RETURN m`;
 
   const params = { title };
 
@@ -32,6 +35,7 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
 
   return (
     <div className="movie">
+      <ShowQuery query={query} />
       <div className="info">
         <img
           src={`${process.env.PUBLIC_URL}/img/movies/${title}.jpg`}

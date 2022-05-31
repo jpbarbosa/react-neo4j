@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useReadCypher } from 'use-neo4j';
+import { ShowQuery } from './ShowQuery';
 
 interface ListProps {
   movieTitle?: string;
@@ -38,6 +39,7 @@ export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
   return (
     <div className="list">
       <h2>Movies</h2>
+      <ShowQuery query={query} />
       <ul>
         {records?.map((record) => (
           <li
