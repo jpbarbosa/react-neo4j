@@ -22,6 +22,11 @@ const Graph: React.FC<NeoGraphProps> = (props) => {
       REACT_APP_GRAPHDB_PASS,
     } = process.env;
 
+    const encrypted: 'ENCRYPTION_ON' | 'ENCRYPTION_OFF' =
+      window.location.protocol === 'https:'
+        ? 'ENCRYPTION_ON'
+        : 'ENCRYPTION_OFF';
+
     const config = {
       container_id: visRef.current.id,
       server_url: `neo4j://${String(REACT_APP_GRAPHDB_HOST)}:${String(
@@ -62,6 +67,7 @@ const Graph: React.FC<NeoGraphProps> = (props) => {
         },
       },
       initial_cypher: query,
+      encrypted,
     };
     const vis = new Neovis(config);
     vis.render();
