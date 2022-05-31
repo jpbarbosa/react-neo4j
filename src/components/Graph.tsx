@@ -24,6 +24,11 @@ const Graph: React.FC<NeoGraphProps> = (props) => {
         ? 'ENCRYPTION_ON'
         : 'ENCRYPTION_OFF';
 
+    const relationshipsStyle = {
+      caption: false,
+      thickness: '1',
+    };
+
     const config = {
       container_id: visRef.current.id,
       server_url: `neo4j://${String(REACT_APP_GRAPHDB_HOST)}:${String(
@@ -42,26 +47,12 @@ const Graph: React.FC<NeoGraphProps> = (props) => {
         },
       },
       relationships: {
-        ACTED_IN: {
-          caption: false,
-          thickness: '1',
-        },
-        DIRECTED: {
-          caption: false,
-          thickness: '1',
-        },
-        WROTE: {
-          caption: false,
-          thickness: '1',
-        },
-        REVIEWED: {
-          caption: false,
-          thickness: '1',
-        },
-        PRODUCED: {
-          caption: false,
-          thickness: '1',
-        },
+        ACTED_IN: relationshipsStyle,
+        DIRECTED: relationshipsStyle,
+        WROTE: relationshipsStyle,
+        REVIEWED: relationshipsStyle,
+        PRODUCED: relationshipsStyle,
+        WATCHED: relationshipsStyle,
       },
       initial_cypher: query,
       encrypted,
