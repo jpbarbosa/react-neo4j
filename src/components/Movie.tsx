@@ -32,6 +32,11 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
 
   return (
     <div className="App">
+      <img
+        src={`${process.env.PUBLIC_URL}/img/movies/${title}.jpg`}
+        alt={title}
+        width={100}
+      />
       <div>Tagline: {tagline}</div>
       <div>Released year: {released.low}</div>
       <h3>People:</h3>
