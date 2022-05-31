@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AllMovies } from './AllMovies';
 import { List } from './List';
 import { Movie } from './Movie';
 
@@ -7,15 +8,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Neo4j Sandbox</h1>
+      <h1 onClick={() => setMovieTitle(undefined)}>Neo4j Sandbox</h1>
       <div style={{ display: 'flex' }}>
         <List movieTitle={movieTitle} setMovieTitle={setMovieTitle} />
-        {movieTitle && (
-          <div>
-            <h2>{movieTitle}</h2>
-            <Movie title={movieTitle} />
-          </div>
-        )}
+        {movieTitle ? <Movie title={movieTitle} /> : <AllMovies />}
       </div>
     </div>
   );
