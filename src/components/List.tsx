@@ -30,7 +30,7 @@ export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (

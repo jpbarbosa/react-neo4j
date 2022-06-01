@@ -24,7 +24,7 @@ export const People: React.FC<PeopleProps> = ({ movieTitle }) => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (

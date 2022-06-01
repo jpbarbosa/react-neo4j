@@ -22,7 +22,7 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
   }, [title]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   const movie = first?.get('m');

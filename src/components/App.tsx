@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1 onClick={() => setMovieTitle(undefined)}>Neo4j Sandbox</h1>
+        <h1 onClick={() => setMovieTitle(undefined)}>Neo4j Demo App</h1>
         <a href="https://github.com/jpbarbosa/react-neo4j/">
           github.com/jpbarbosa/react-neo4j
         </a>

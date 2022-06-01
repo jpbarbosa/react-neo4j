@@ -164,3 +164,7 @@ div.showQuery .query {
     width: auto;
   }
 }
+
+div.loading {
+  padding: 16px;
+}
