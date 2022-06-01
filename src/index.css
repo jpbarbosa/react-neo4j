@@ -127,6 +127,8 @@ div.showQuery .query {
 
 div.showQuery .show {
   background: #111;
+  color: #666 !important;
+  text-transform: uppercase;
 }
 
 div.showQuery .query {
