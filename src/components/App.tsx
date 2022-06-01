@@ -8,7 +8,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1 onClick={() => setMovieTitle(undefined)}>Neo4j Sandbox</h1>
+      <header>
+        <h1 onClick={() => setMovieTitle(undefined)}>Neo4j Sandbox</h1>
+        <a href="https://github.com/jpbarbosa/react-neo4j/">
+          github.com/jpbarbosa/react-neo4j
+        </a>
+      </header>
       <div style={{ display: 'flex' }}>
         <List movieTitle={movieTitle} setMovieTitle={setMovieTitle} />
         {movieTitle ? <Movie title={movieTitle} /> : <AllMovies />}

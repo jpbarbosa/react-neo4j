@@ -44,14 +44,24 @@ div.list > div.relations {
   color: #666;
 }
 
-h1 {
-  padding-bottom: 16px;
+header {
   border-bottom: 2px solid #ccc;
-  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+h1 {
+  margin: 0;
   cursor: pointer;
 }
 
-h1,
+header a {
+  color: coral;
+  text-decoration: none;
+}
+
 h2 {
   padding-left: 16px;
 }
@@ -136,6 +146,11 @@ div.showQuery .query {
 }
 
 @media screen and (max-width: 800px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   div.list ul li {
     white-space: normal;
   }
