@@ -134,3 +134,18 @@ div.showQuery .show {
 div.showQuery .query {
   background: #ccc;
 }
+
+@media screen and (max-width: 800px) {
+  div.list ul li {
+    white-space: normal;
+  }
+  div.movie .info {
+    flex-direction: column;
+  }
+  div.movie h2 {
+    padding-top: 8px;
+  }
+  div.graph {
+    width: auto;
+  }
+}
