@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
 import { useReadCypher } from 'use-neo4j';
+import { ListItem } from './ListItem';
 import { ShowQuery } from './ShowQuery';
 
 interface ListProps {
   movieTitle?: string;
   setMovieTitle: Function;
-}
-
-function onlyUnique(value: any, index: any, self: any) {
-  return self.indexOf(value) === index;
 }
 
 export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
@@ -42,28 +39,12 @@ export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
       <ShowQuery query={query} />
       <ul>
         {records?.map((record) => (
-          <li
+          <ListItem
+            record={record}
+            movieTitle={movieTitle}
+            setMovieTitle={setMovieTitle}
             key={record.get('movie').properties.title}
-            onClick={() => setMovieTitle(record.get('movie').properties.title)}
-            className={
-              record.get('movie').properties.title === movieTitle
-                ? 'active'
-                : ''
-            }
-          >
-            {record.get('movie').properties.title}
-            {record.get('relations').length > 0 && (
-              <span
-                title={`also with ${record
-                  .get('relations')
-                  .map((item: any) => item.properties.name)
-                  .filter(onlyUnique)
-                  .join(', ')}`}
-              >
-                &nbsp;({record.get('relations').length})
-              </span>
-            )}
-          </li>
+          />
         ))}
       </ul>
     </div>
