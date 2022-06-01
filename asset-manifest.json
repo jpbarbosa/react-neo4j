@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-neo4j/static/css/main.a938aa45.css",
+    "main.css": "/react-neo4j/static/css/main.7f4d1e58.css",
     "main.js": "/react-neo4j/static/js/main.f50e460b.js",
     "index.html": "/react-neo4j/index.html",
-    "main.a938aa45.css.map": "/react-neo4j/static/css/main.a938aa45.css.map",
+    "main.7f4d1e58.css.map": "/react-neo4j/static/css/main.7f4d1e58.css.map",
     "main.f50e460b.js.map": "/react-neo4j/static/js/main.f50e460b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a938aa45.css",
+    "static/css/main.7f4d1e58.css",
     "static/js/main.f50e460b.js"
   ]
 }
