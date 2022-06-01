@@ -39,23 +39,33 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
 
   return (
     <div className="movie">
-      <ShowQuery query={query} />
       <div className="info">
-        <img
-          src={`${process.env.PUBLIC_URL}/img/movies/${title}.jpg`}
-          alt={title}
-          width={100}
-          style={{ float: 'left' }}
-        />
-        <div>
-          <h2>{title}</h2>
-          <div title="Tagline">{tagline}</div>
-          <div title="Released">{released.low}</div>
+        <div className="basicinfo">
+          <ShowQuery query={query} />
+          <div className="image-text">
+            <img
+              src={`${process.env.PUBLIC_URL}/img/movies/${title}.jpg`}
+              alt={title}
+              width={100}
+              style={{ float: 'left' }}
+            />
+            <div>
+              <h2>{title}</h2>
+              <div title="Tagline">{tagline}</div>
+              <div title="Released">{released.low}</div>
+            </div>
+          </div>
+        </div>
+        <div className="moreinfo">
+          <div>
+            <h3>Actors</h3>
+            <People movieTitle={title} />
+          </div>
         </div>
       </div>
-      <h3>Actors</h3>
-      <People movieTitle={title} />
-      <Graph containerId="teste" query={graphQuery} />
+      <div className="graph">
+        <Graph containerId="teste" query={graphQuery} />
+      </div>
     </div>
   );
 };

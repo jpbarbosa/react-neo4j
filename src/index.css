@@ -71,17 +71,35 @@ h3 {
   margin: 16px 0 8px 0;
 }
 
+div.allMovies,
 div.movie {
+  width: 100%;
   padding: 16px;
 }
 
-div.movie .info {
+div.movie {
   display: flex;
   align-items: flex-start;
 }
 
+div.movie .basicinfo .image-text {
+  display: flex;
+  align-items: flex-start;
+}
+
+div.movie > div.info,
+div.movie > div.graph {
+  width: 100%;
+  flex-basis: 100%;
+  margin: 0;
+}
+
 div.movie .info img {
   margin-right: 16px;
+}
+
+div.movie .moreinfo {
+  display: flex;
 }
 
 div.movie h2 {
@@ -103,16 +121,17 @@ div.movie div[title="Released"] {
 
 div.movie ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0 16px 0 0;
   padding: 0;
 }
 
 div.movie ul li {
+  white-space: nowrap;
   color: #666;
 }
 
 div.graph {
-  width: 600px;
+  width: 100%;
   height: 600px;
   margin-top: 16px;
 }
@@ -154,8 +173,15 @@ div.showQuery .query {
   div.list ul li {
     white-space: normal;
   }
+  div.movie {
+    flex-direction: column;
+  }
   div.movie .info {
     flex-direction: column;
+  }
+  div.movie > div.info,
+  div.movie > div.graph {
+    flex-basis: auto;
   }
   div.movie h2 {
     padding-top: 8px;
