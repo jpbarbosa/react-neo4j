@@ -13,7 +13,7 @@ export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
   //const params = { title: 'The Matrix' };
 
   const query = `MATCH (movie:Movie)
-    OPTIONAL MATCH (movie)<-[relation1]-(person: Person)-[relation2]->(currentMovie {title: $title})
+    OPTIONAL MATCH (movie)<-[r1:ACTED_IN]-(person: Person)-[r2:ACTED_IN]->(currentMovie {title: $title})
     RETURN movie,collect(person) AS relations
     ORDER BY movie.title`;
 

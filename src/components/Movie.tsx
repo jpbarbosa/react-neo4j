@@ -33,6 +33,10 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
 
   const { tagline, released } = first?.get('m').properties;
 
+  const graphQuery = `MATCH (m:Movie {title: '${title}'})<-[r1:ACTED_IN]-(p:Person)
+    OPTIONAL MATCH (p:Person)-[r2:ACTED_IN]->(otherMovies:Movie)
+    RETURN *`;
+
   return (
     <div className="movie">
       <ShowQuery query={query} />
@@ -49,12 +53,9 @@ export const Movie: React.FC<MovieProps> = ({ title }) => {
           <div title="Released">{released.low}</div>
         </div>
       </div>
-      <h3>People</h3>
+      <h3>Actors</h3>
       <People movieTitle={title} />
-      <Graph
-        containerId="teste"
-        query={`MATCH (m:Movie)-[relatedTo]-(p:Person) WHERE m.title CONTAINS "${title}" RETURN *`}
-      />
+      <Graph containerId="teste" query={graphQuery} />
     </div>
   );
 };

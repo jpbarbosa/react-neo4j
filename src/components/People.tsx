@@ -7,9 +7,9 @@ interface PeopleProps {
 }
 
 export const People: React.FC<PeopleProps> = ({ movieTitle }) => {
-  const query = `MATCH (p:Person)-[relatedTo]-(m:Movie { title: $title })
-    RETURN p, type(relatedTo)
-    ORDER BY type(relatedTo)`;
+  const query = `MATCH (p:Person)-[r:ACTED_IN]->(m:Movie { title: $title })
+    RETURN DISTINCT(p)
+    ORDER BY p.name`;
 
   const params = { title: movieTitle };
 
@@ -32,14 +32,8 @@ export const People: React.FC<PeopleProps> = ({ movieTitle }) => {
       <ShowQuery query={query} />
       <ul>
         {records?.map((record) => (
-          <li
-            key={
-              record.get('p').properties.name +
-              '_' +
-              record.get('type(relatedTo)')
-            }
-          >
-            {record.get('p').properties.name}, {record.get('type(relatedTo)')}
+          <li key={record.get('p').properties.name}>
+            {record.get('p').properties.name}
           </li>
         ))}
       </ul>
