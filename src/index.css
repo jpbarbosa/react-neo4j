@@ -173,10 +173,9 @@ div.showQuery .query {
   div.list ul li {
     white-space: normal;
   }
-  div.movie {
-    flex-direction: column;
-  }
-  div.movie .info {
+  div.movie,
+  div.movie .info,
+  div.movie .image-text {
     flex-direction: column;
   }
   div.movie > div.info,
