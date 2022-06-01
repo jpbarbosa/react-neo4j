@@ -34,6 +34,16 @@ div.list ul li.active {
   color: #0c0;
 }
 
+div.list span.relations {
+  color: aqua;
+}
+
+div.list > div.relations {
+  font-size: 0.8em;
+  padding: 0px 16px 8px;
+  color: #666;
+}
+
 h1 {
   padding-bottom: 16px;
   border-bottom: 2px solid #ccc;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Record } from 'neo4j-driver';
 
 interface ListItemProps {
@@ -16,6 +16,8 @@ export const ListItem: React.FC<ListItemProps> = ({
   movieTitle,
   setMovieTitle,
 }) => {
+  const [showRelations, setShowRelations] = useState(false);
+
   const { title } = record.get('movie').properties;
   const relations = record
     .get('relations')
@@ -28,9 +30,14 @@ export const ListItem: React.FC<ListItemProps> = ({
       className={title === movieTitle ? 'active' : ''}
     >
       {title}
-      {relations.length > 0 && (
-        <span title={`also with ${relations.join(', ')}`}>
+      {title !== movieTitle && relations.length > 0 && (
+        <span
+          className="relations"
+          onMouseOver={() => setShowRelations(true)}
+          onMouseOut={() => setShowRelations(false)}
+        >
           &nbsp;({relations.length})
+          {showRelations && <div>{`also with ${relations.join(', ')}`}</div>}
         </span>
       )}
     </li>

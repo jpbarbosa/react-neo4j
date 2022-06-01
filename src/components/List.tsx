@@ -37,6 +37,9 @@ export const List: React.FC<ListProps> = ({ movieTitle, setMovieTitle }) => {
     <div className="list">
       <h2>Movies</h2>
       <ShowQuery query={query} />
+      <div className="relations">
+        <span className="relations">(*)</span> selected movie relations
+      </div>
       <ul>
         {records?.map((record) => (
           <ListItem
